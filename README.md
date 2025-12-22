@@ -61,8 +61,8 @@ TodoContext/
 1. Clone the repository:
 
 ```bash
-git clone <repo-url>
-cd <repo-folder>
+git clone <https://github.com/structbase/TodoContext>
+cd <TodoContext>
 ````
 
 2. Install dependencies:
@@ -80,6 +80,19 @@ npm run dev
 ```
 
 2. Open your browser at the URL shown in the terminal (usually `http://localhost:5173`)
+
+---
+
+## 📸 Screenshots
+
+### 🖥️ Desktop Layout
+
+![Desktop Screenshot](./public/screenshots/desktop.png)
+
+### 📱 Mobile Layout
+
+![Mobile Screenshot](./public/screenshots/mobile.png)
+
 
 ### Using the Todo App
 

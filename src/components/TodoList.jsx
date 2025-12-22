@@ -1,14 +1,22 @@
 import { useTodos } from "../contexts/TodoContext";
+import { useFilter } from "../contexts/FilterContext";
 import TodoItem from "./TodoItem";
 
 export default function TodoList() {
     const { todos } = useTodos();
+    const { filter } = useFilter();
 
-    if (todos.length === 0) return <p>No todos yet! Add one above.</p>;
+    const filteredTodos = todos.filter((todo) => {
+        if (filter === "all") return true;
+        if (filter === "active") return !todo.completed;
+        if (filter === "completed") return todo.completed;
+    });
+
+    if (filteredTodos.length === 0) return <p>No todos yet! Add one above.</p>;
 
     return (
         <ul>
-            {todos.map((todo) => (
+            {filteredTodos.map((todo) => (
                 <TodoItem key={todo.id} todo={todo} />
             ))}
         </ul>

@@ -1,6 +1,6 @@
 import { TodoProvider } from "../contexts/TodoContext";
-import { FilterProvider } from "../contexts/TodoContext";
-import { ThemeProvider } from "../contexts/TodoContext";
+import { FilterProvider } from "../contexts/FilterContext";
+import { ThemeProvider } from "../contexts/ThemeContext";
 
 export default function AppProviders({ children }) {
     return (

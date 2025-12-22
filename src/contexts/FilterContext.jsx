@@ -1,3 +1,5 @@
 import { createContext, useContext, useState } from "react";
 
-const FilterProvider = createContext(){}
+const FilterContext = createContext(null);
+
+export function FilterProvider() {}

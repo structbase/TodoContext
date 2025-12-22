@@ -1,9 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const TodoContext = createContext(null);
 
 export function TodoProvider({ children }) {
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(() => {
+        const saved = localStorage.getItem("todos");
+        return saved ? JSON.parse(saved) : [];
+    });
 
     const addTodo = (text) => {
         const newTodo = {
@@ -11,9 +14,9 @@ export function TodoProvider({ children }) {
             text,
             completed: false,
         };
-
         setTodos((prev) => [...prev, newTodo]);
     };
+
     const toggleTodo = (id) => {
         setTodos((prev) =>
             prev.map((todo) =>
@@ -33,6 +36,10 @@ export function TodoProvider({ children }) {
             )
         );
     };
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos]);
 
     return (
         <TodoContext.Provider

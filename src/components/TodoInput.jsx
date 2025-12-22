@@ -1,18 +1,22 @@
 import { useState } from "react";
+import { useTodos } from "../contexts/TodoContext";
 
 export default function TodoInput() {
     const [text, setText] = useState("");
+    const { addTodo } = useTodos();
 
-    const handleSumbit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (!text.trim()) return;
 
-        setText;
+        addTodo(text);
+        setText("");
     };
+
     return (
-        <form onSubmit={handleSumbit}>
+        <form onSubmit={handleSubmit}>
             <input
-                type="text"
+                value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Add a todo"
             />

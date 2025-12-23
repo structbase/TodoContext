@@ -83,6 +83,14 @@ npm run dev
 
 ---
 
+## 🚀 Live Demo
+
+> 🌐 **Live Demo:** *[Click Here for Live Demo](https://peaceful-torte-a5838b.netlify.app/)*
+
+> 💻 **Repository:** *[View Source on GitHub](https://github.com/structbase/TodoContext)*
+
+---
+
 ## 📸 Screenshots
 
 ### 🖥️ Desktop Layout

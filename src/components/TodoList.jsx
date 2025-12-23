@@ -12,10 +12,16 @@ export default function TodoList() {
         if (filter === "completed") return todo.completed;
     });
 
-    if (filteredTodos.length === 0) return <p>No todos yet! Add one above.</p>;
+    if (filteredTodos.length === 0) {
+        return (
+            <div className="alert alert-info text-center" role="alert">
+                No todos yet! Add one above.
+            </div>
+        );
+    }
 
     return (
-        <ul>
+        <ul className="list-group">
             {filteredTodos.map((todo) => (
                 <TodoItem key={todo.id} todo={todo} />
             ))}

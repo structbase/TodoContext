@@ -4,22 +4,25 @@ export default function FilterButtons() {
     const { filter, setFilter } = useFilter();
 
     return (
-        <div>
+        <div className="btn-group mb-4" role="group">
             <button
+                type="button"
+                className={`btn ${filter === "all" ? "btn-primary" : "btn-outline-primary"}`}
                 onClick={() => setFilter("all")}
-                disabled={filter === "all"}
             >
                 All
             </button>
             <button
+                type="button"
+                className={`btn ${filter === "active" ? "btn-primary" : "btn-outline-primary"}`}
                 onClick={() => setFilter("active")}
-                disabled={filter === "active"}
             >
                 Active
             </button>
             <button
+                type="button"
+                className={`btn ${filter === "completed" ? "btn-primary" : "btn-outline-primary"}`}
                 onClick={() => setFilter("completed")}
-                disabled={filter === "completed"}
             >
                 Completed
             </button>

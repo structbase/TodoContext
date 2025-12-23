@@ -14,22 +14,46 @@ export default function TodoItem({ todo }) {
     };
 
     return (
-        <li>
+        <li className="list-group-item d-flex align-items-center gap-3 mb-2 shadow-sm">
             <input
                 type="checkbox"
+                className="form-check-input flex-shrink-0"
+                style={{ width: "1.25rem", height: "1.25rem" }}
                 checked={todo.completed}
                 onChange={() => toggleTodo(todo.id)}
             />
             {isEditing ? (
                 <input
+                    type="text"
+                    className="form-control flex-grow-1"
                     value={newText}
                     onChange={(e) => setNewText(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") handleEdit();
+                        if (e.key === "Escape") {
+                            setNewText(todo.text);
+                            setIsEditing(false);
+                        }
+                    }}
+                    autoFocus
                 />
             ) : (
-                <span>{todo.text}</span>
+                <span className={`flex-grow-1 ${todo.completed ? "text-decoration-line-through text-muted" : ""}`}>
+                    {todo.text}
+                </span>
             )}
-            <button onClick={handleEdit}>{isEditing ? "Save" : "Edit"}</button>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <button 
+                className="btn btn-sm btn-outline-primary"
+                onClick={handleEdit}
+            >
+                {isEditing ? "Save" : "Edit"}
+            </button>
+            <button 
+                className="btn btn-sm btn-outline-danger"
+                onClick={() => deleteTodo(todo.id)}
+            >
+                Delete
+            </button>
         </li>
     );
 }

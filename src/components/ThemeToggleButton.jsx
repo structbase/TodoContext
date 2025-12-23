@@ -4,11 +4,13 @@ export default function ThemeToggleButton() {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <button 
+        // switch between light/dark theme
+        <button
             className="btn btn-outline-secondary btn-sm"
             onClick={toggleTheme}
         >
-            {theme === "light" ? "🌙" : "☀️"} {theme === "light" ? "Dark" : "Light"} Mode
+            {theme === "light" ? "🌙" : "☀️"}{" "}
+            {theme === "light" ? "Dark" : "Light"} Mode
         </button>
     );
 }

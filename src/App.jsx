@@ -5,14 +5,21 @@ import ThemeToggleButton from "./components/ThemeToggleButton";
 import { useTheme } from "./contexts/ThemeContext";
 import "./App.css";
 
-function App() {
+export default function App() {
     const { theme } = useTheme();
 
     return (
-        <div className={theme === "light" ? "light-theme" : "dark-theme"} style={{ minHeight: "100vh", padding: "2rem 0" }}>
+        // top shell sets theme background + spacing
+        <div
+            className={theme === "light" ? "light-theme" : "dark-theme"}
+            style={{ minHeight: "100vh", padding: "2rem 0" }}
+        >
+            {/* container keeps content centered */}
+
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-8 col-lg-6">
+                        {/* header row with title and theme toggle */}
                         <div className="d-flex justify-content-between align-items-center mb-4">
                             <h1 className="h2 mb-0">Todo App</h1>
                             <ThemeToggleButton />
@@ -26,5 +33,3 @@ function App() {
         </div>
     );
 }
-
-export default App;
